@@ -42,22 +42,21 @@ section {
 }
 
 /* Hero Section Styles */
+/* Use a local image named `assets/landing-page-4.jpg`. If you prefer, replace the URL below
+   with your own path or filename. The linear-gradient provides a color overlay for readability. */
 .hero {
-  position: relative; /* Needed for overlay */
-  /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;      /* Make the image cover the whole area */
-  background-position: center; /* Center the image */
+  position: relative;
+  background-image:
+    linear-gradient(rgba(46,157,247,0.45), rgba(46,157,247,0.45)),
+    url('assets/landing-page-4.jpg');
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  color: #fff;                 /* White text for contrast */
-  text-align: center;          /* Center the text */
-  padding: 60px 20px;          /* Add space above and below */
-  border-radius: 0 0 16px 16px; /* Only round bottom corners */
-
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+  border-radius: 0 0 16px 16px;
   background-blend-mode: darken;
-  background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
 }
 
 /* Make the headline bold and modern */
@@ -138,55 +137,46 @@ section {
 
 /* 
   Media Queries for Responsive Design
-  Media queries help make your website look good on different screen sizes,
-  like phones (small screens) and computers (large screens).
+  Media queries make the layout adapt to different screen sizes (phones, tablets, desktops).
+  They change paddings, font sizes and layout so content remains readable and usable.
 */
-
-/* This media query applies styles when the screen is 600px wide or less (like on most phones) */
 @media (max-width: 600px) {
-  /* Make hero section padding smaller on small screens */
   .hero {
     padding: 32px 8px;
     font-size: 1em;
   }
 
-  /* Make headline font size smaller so it fits on small screens */
   .hero h1 {
     font-size: 1.4em;
   }
 
-  /* Make subheadline font size smaller */
   .hero p {
     font-size: 1em;
   }
 
-  /* Make story and call-to-action sections have less padding */
   .story,
   .call-to-action,
   .donation-section {
     padding: 14px 8px;
   }
 
-  /* Make impact story image smaller and stack above the text */
   .impact-content {
-    display: block; /* Stack items vertically */
+    display: block;
     text-align: center;
   }
 
   .impact-image {
-    width: 90%;    /* Make image take up most of the width */
+    width: 90%;
     max-width: 220px;
   }
 }
 
-/* This media query applies styles when the screen is wider than 600px (like on tablets and computers) */
 @media (min-width: 601px) {
-  /* Show image and text side by side in the impact story */
   .impact-content {
-    display: flex;           /* Place items in a row */
-    align-items: center;     /* Vertically center items */
-    justify-content: center; /* Center the whole group */
-    gap: 28px;               /* Space between image and text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
     text-align: left;
     max-width: 800px;
     margin: 0 auto;

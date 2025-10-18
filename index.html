@@ -1,47 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Charity Water Landing Page</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="logo" aria-hidden="true">Charity<span class="logo-accent">Water</span></div>
+      <nav class="site-nav" role="navigation" aria-label="Main navigation">
+        <a href="#">Our Work</a>
+        <a href="#">Impact</a>
+        <a href="#">Stories</a>
+        <a href="#" class="donate-button header-donate">Donate</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="site-main">
+    <!-- Hero Section: centered headline, subheadline, full-width background image -->
+    <section class="hero" role="region" aria-label="Hero">
+      <div class="hero-content container">
         <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
+        <p class="hero-sub">Join us in bringing safe, reliable water to communities around the world.</p>
+        <div class="hero-actions">
+          <a href="#" class="donate-button">Donate Now</a>
+          <a href="#" class="secondary-button">Learn More</a>
+        </div>
+      </div>
     </section>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
+    <!-- Story Section: leave space for content -->
+    <section class="story container" role="region" aria-label="Our Story">
+      <h2>Our Story</h2>
+      <p><!-- Your story content goes here --></p>
     </section>
 
     <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
+    <section class="impact-story container" role="region" aria-label="Impact Story">
+      <h2>Real Impact: Meet Amina</h2>
+      <div class="impact-content">
+        <img src="assets/landing-page-4.jpg"
+             alt="Community gathering around a clean water source" class="impact-image">
+        <div class="impact-text">
+          <p><!-- Impact story text goes here --></p>
         </div>
+      </div>
     </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
+    <!-- Call-to-Action Section: donation button, leave space for copy -->
+    <section class="call-to-action" role="region" aria-label="Make a Difference">
+      <div class="container cta-inner">
         <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
+        <p><!-- CTA supporting text goes here --></p>
         <a href="#" class="donate-button">Donate Now</a>
+      </div>
     </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>© <span id="year"></span> Charity Water — All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // small script to set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
