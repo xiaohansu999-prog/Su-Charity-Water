@@ -41,38 +41,65 @@ section {
   padding: 24px 16px;
 }
 
-/* Hero Section Styles */
-/* Use a local image named `assets/landing-page-4.jpg`. If you prefer, replace the URL below
-   with your own path or filename. The linear-gradient provides a color overlay for readability. */
+/* HERO: use the image from /img, make it full-bleed and fit 100% */
 .hero {
   position: relative;
-  background-image:
-    linear-gradient(rgba(46,157,247,0.45), rgba(46,157,247,0.45)),
-    url('assets/landing-page-4.jpg');
-  background-size: cover;
-  background-position: center;
+
+  /* rename the file to a safe name (see terminal commands below) and use that path */
+  background: linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.18)),
+              url("img/landing-page-4.png") center/cover no-repeat;
+  background-size: cover;           /* ensure the image fills the hero */
+  background-position: center;      /* keep the focal point centered */
   background-repeat: no-repeat;
-  color: #fff;
-  text-align: center;
-  padding: 60px 20px;
-  border-radius: 0 0 16px 16px;
   background-blend-mode: darken;
+  background-color: transparent;
+
+  /* full-bleed edge-to-edge while keeping page content centered */
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  /* smaller hero height so it doesn't dominate the page */
+  padding: 44px 20px;
+  min-height: 38vh;   /* adjust as needed (vh keeps it responsive) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  z-index: 0;
+
+  /* remove card visuals that would block the image */
+  box-shadow: none;
+  border-radius: 0;
 }
 
-/* Make the headline bold and modern */
-.hero h1 {
-  font-size: 2.5em;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
+/* subtle overlay to improve text contrast */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0,0,0,0.14), rgba(0,0,0,0.14));
+  pointer-events: none;
+  z-index: 1;
 }
 
-/* Style the subheadline */
-.hero p {
-  font-size: 1.2em;
-  margin-top: 0;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.12);
+/* ensure text sits above the overlay */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 980px;
+  padding: 0 16px;
+}
+
+/* make sure story section returns to normal (no image) */
+.story {
+  /* keep the default white card style for story now that hero holds the image */
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(46,157,247,0.07);
+  border-radius: 12px;
 }
 
 /* Story Section Styles */
@@ -81,6 +108,29 @@ section {
   color: #222;
   text-align: center;
   padding: 30px 20px;
+}
+
+.story-inner {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.story-image {
+  width: 45%;
+  max-width: 420px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.story-text { flex: 1; }
+
+/* Stack on small screens so image sits above text */
+@media (max-width: 700px) {
+  .story-inner { flex-direction: column; }
+  .story-image { width: 100%; max-width: none; }
 }
 
 /* Add accent color to section headings */
@@ -135,6 +185,50 @@ section {
   margin-bottom: 20px;
 }
 
+/* Story section using the provided image as a background.
+   File placed at /workspaces/Su-Charity-Water/img/Landing Page (4).png
+   Note: spaces and parentheses are OK when wrapped in quotes.
+*/
+.story-hero {
+  /* override default white card rules for this section */
+  background: linear-gradient(rgba(0,0,0,0.28), rgba(0,0,0,0.28)),
+              url("img/Landing Page (4).png") center/cover no-repeat;
+  color: #fff;
+  box-shadow: none;
+  border-radius: 12px;
+  padding: 80px 30px;
+  /* make the image feel expansive while keeping content aligned */
+  background-blend-mode: multiply;
+}
+
+/* inner wrapper keeps text readable and constrained */
+.story-hero-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: left;
+}
+.story-hero h2 {
+  font-size: 2rem;
+  margin: 0 0 8px;
+  line-height: 1.05;
+}
+.story-hero p {
+  font-size: 1.125rem;
+  margin: 0;
+  opacity: 0.95;
+}
+
+/* ensure good reading on small screens */
+@media (max-width: 700px) {
+  .story-hero {
+    padding: 56px 24px;
+    border-radius: 6px;
+    background-position: center top;
+  }
+  .story-hero h2 { font-size: 1.5rem; }
+  .story-hero p { font-size: 1rem; }
+}
+
 /* 
   Media Queries for Responsive Design
   Media queries make the layout adapt to different screen sizes (phones, tablets, desktops).
@@ -142,7 +236,7 @@ section {
 */
 @media (max-width: 600px) {
   .hero {
-    padding: 32px 8px;
+    padding: 32px 12px;
     font-size: 1em;
   }
 
@@ -169,6 +263,23 @@ section {
     width: 90%;
     max-width: 220px;
   }
+
+  /* logo image styling (replace previous broken rule) */
+  .logo-img {
+    height: 12px;      /* adjust to taste */
+    width: 12px;
+    display: block;
+    object-fit: contain;
+    margin-right: 12px;
+  }
+
+  /* ensure header alignment (already present) */
+  .header-inner {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+  }
 }
 
 @media (min-width: 601px) {
@@ -184,5 +295,73 @@ section {
 
   .impact-image {
     width: 300px;
+  }
+}
+
+/* ensure header items sit on one line and nav aligns right */
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* logo left, nav right */
+  gap: 16px;
+  padding: 12px 0;
+}
+
+/* horizontal nav on the right */
+.site-nav {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  white-space: nowrap; /* keep items on one line */
+}
+
+/* link appearance */
+.site-nav a {
+  color: var(--text, #222);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.98rem;
+  padding: 6px 4px;
+}
+
+/* style the donate link as a button */
+.header-donate {
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: var(--brand-green, #4FCB53);
+  color: #fff;
+  font-weight: 700;
+}
+
+/* logo image sizing — adjust height until it visually matches the nav text */
+.logo-img {
+  height: 22px;   /* try 20–26px for fine tuning */
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 12px;
+}
+
+/* ensure header row alignment */
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Responsive tweak */
+@media (max-width: 600px) {
+  .logo-img { height: 18px; }
+  .site-nav a { line-height: 18px; }
+}
+
+/* responsive: collapse non-essential links on small screens, keep Donate visible */
+@media (max-width: 700px) {
+  .site-nav a:not(.header-donate) {
+    display: none;
+  }
+  .header-inner {
+    padding: 10px;
   }
 }

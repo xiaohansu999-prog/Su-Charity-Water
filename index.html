@@ -3,51 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Charity Water Landing Page</title>
+  <meta name="description" content="Charity: Water — student-led action to bring clean water to communities worldwide." />
+  <title>Charity Water — College Landing</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
   <header class="site-header" role="banner">
-    <div class="container header-inner">
-      <div class="logo" aria-hidden="true">Charity<span class="logo-accent">Water</span></div>
-      <nav class="site-nav" role="navigation" aria-label="Main navigation">
-        <a href="#">Our Work</a>
-        <a href="#">Impact</a>
-        <a href="#">Stories</a>
-        <a href="#" class="donate-button header-donate">Donate</a>
-      </nav>
-    </div>
-  </header>
+  <div class="container header-inner">
+    <!-- brand image in top-left -->
+    <img src="img/charitywater_logo_horizontal_BlackText.png" alt="charity: water logo" class="logo-img">
+
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+      <a href="#our-work">Our Work</a>
+      <a href="#impact">Impact</a>
+      <a href="#stories">Stories</a>
+      <a href="#donate" class="donate-button header-donate">Donate</a>
+    </nav>
+  </div>
+</header>
 
   <main id="main" class="site-main">
     <!-- Hero Section: centered headline, subheadline, full-width background image -->
     <section class="hero" role="region" aria-label="Hero">
       <div class="hero-content container">
-        <h1>Clean Water for Everyone</h1>
-        <p class="hero-sub">Join us in bringing safe, reliable water to communities around the world.</p>
+        <h1>Make Waves for Global Change</h1>
+        <p class="hero-sub">Bring clean water to communities and see the real difference you make</p>
         <div class="hero-actions">
           <a href="#" class="donate-button">Donate Now</a>
-          <a href="#" class="secondary-button">Learn More</a>
+          <a href="#" class="secondary-button">Get Involved</a>
         </div>
       </div>
     </section>
 
-    <!-- Story Section: leave space for content -->
+    <!-- Story Section: now plain container (image moved to hero) -->
     <section class="story container" role="region" aria-label="Our Story">
-      <h2>Our Story</h2>
-      <p><!-- Your story content goes here --></p>
+      <div class="story-inner">
+        <h2>Our Story</h2>
+        <p><!-- Add your college-focused messaging here --></p>
+      </div>
     </section>
 
     <!-- Real-World Impact Story Section -->
     <section class="impact-story container" role="region" aria-label="Impact Story">
-      <h2>Real Impact: Meet Amina</h2>
+      <h2>Real Impact</h2>
       <div class="impact-content">
         <img src="assets/landing-page-4.jpg"
              alt="Community gathering around a clean water source" class="impact-image">
         <div class="impact-text">
-          <p><!-- Impact story text goes here --></p>
+          <p><!-- Add a concise, emotional student-facing impact story here --></p>
         </div>
       </div>
     </section>
@@ -56,7 +59,7 @@
     <section class="call-to-action" role="region" aria-label="Make a Difference">
       <div class="container cta-inner">
         <h2>Make a Difference</h2>
-        <p><!-- CTA supporting text goes here --></p>
+        <p><!-- Short CTA copy for students: emphasize immediacy and impact --></p>
         <a href="#" class="donate-button">Donate Now</a>
       </div>
     </section>
